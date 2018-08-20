@@ -112,12 +112,23 @@
         const currentContent = appState.todoListItems[i].content;
         $( "#tasksContainer" ).append(todoListItemMold(currentContent));
       }
-      //get: get text value in input
-      var taskInput = $('.addTask').val();
 
       $('.addTask').keydown(function(e) {
         if(e.which == 13) {
-        alert('You pressed enter!');
+
+          const newTodolistItem = {
+            content: $('.addTask').val(),
+          };
+          appState.todoListItems.push(newTodolistItem);
+
+          //appState.todoListItems[2].content = 'new content';
+
+          $( "#tasksContainer" ).empty();
+          for (let i = 0; i < appState.todoListItems.length; i++) {
+            const currentContent = appState.todoListItems[i].content;
+            $( "#tasksContainer" ).append(todoListItemMold(currentContent));
+          }
+
         }
       });
     });
