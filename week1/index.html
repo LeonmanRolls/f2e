@@ -112,7 +112,17 @@
         const currentContent = appState.todoListItems[i].content;
         $( "#tasksContainer" ).append(todoListItemMold(currentContent));
       }
+      //get: get text value in input
+      var taskInput = $('.addTask').val();
+
+      $('.addTask').keydown(function(e) {
+        if(e.which == 13) {
+        alert('You pressed enter!');
+        }
+      });
     });
+
+    
 
   </script>
 </body>
